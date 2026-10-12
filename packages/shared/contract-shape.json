@@ -1,0 +1,82 @@
+{
+  "contract": "packages/contracts/faithful.py",
+  "note": "Generated from the contract source and deployments/studionet.json; packages/contracts/tests/test_shape.py fails if either drifts from this file.",
+  "constructor": {},
+  "writes": {
+    "commission": {
+      "params": {
+        "title": "str",
+        "source": "str",
+        "source_lang": "str",
+        "target_lang": "str",
+        "window": "u256"
+      },
+      "payable": true
+    },
+    "claim": {
+      "params": {
+        "job_id": "u256"
+      }
+    },
+    "deliver": {
+      "params": {
+        "job_id": "u256",
+        "translation": "str"
+      }
+    },
+    "release": {
+      "params": {
+        "job_id": "u256"
+      }
+    }
+  },
+  "views": {
+    "count": {
+      "params": {},
+      "returns": "u256"
+    },
+    "held_total": {
+      "params": {},
+      "returns": "u256"
+    },
+    "status": {
+      "params": {
+        "job_id": "u256"
+      },
+      "returns": "str"
+    },
+    "job": {
+      "params": {
+        "job_id": "u256"
+      },
+      "returns": "dict",
+      "fields": [
+        "attempts",
+        "claimed_at",
+        "client",
+        "deadline",
+        "draft_1",
+        "draft_2",
+        "fee",
+        "id",
+        "paid_to",
+        "posted_at",
+        "reason_is_leader_supplied",
+        "ruling_1",
+        "ruling_2",
+        "settled_at",
+        "source",
+        "source_lang",
+        "status",
+        "target_lang",
+        "title",
+        "translator",
+        "why"
+      ],
+      "sampled_from_record": [
+        "jobs",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "network": "studionet",
+  "contract": "0xd91BB7Da22D3d4f672Eb346CeE6941c3557A98F1",
+  "accounts": {
+    "client": "0x6c9CEbd6eC252eFdcd760A8ad8f2886F489574B4",
+    "translator": "0xDB29B2b2a905D0Ac379A5d27abFf12dEdFE675C5"
+  },
+  "steps": [
+    {
+      "step": "job 3: a new client posts a station notice, 0.05 GEN",
+      "method": "commission",
+      "from": "0x6c9CEbd6eC252eFdcd760A8ad8f2886F489574B4",
+      "tx": "0x74f5379e55b1e148a87f50fd2efd9cb38e1384c005becbdbe8c8d194ffed442e",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the client tries to claim it",
+      "method": "claim",
+      "from": "0x6c9CEbd6eC252eFdcd760A8ad8f2886F489574B4",
+      "tx": "0xe1e3f8f25e588178ad079f222e8074ca648934c7f7df6c936b35a657a24b82bf",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the client cannot claim its own job"
+    },
+    {
+      "step": "a new translator claims it",
+      "method": "claim",
+      "from": "0xDB29B2b2a905D0Ac379A5d27abFf12dEdFE675C5",
+      "tx": "0xe1ac63724758867c170dba7ac1e10b42ab58a74d46f2ecf92da4eed6b22182d8",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the client tries to deliver it",
+      "method": "deliver",
+      "from": "0x6c9CEbd6eC252eFdcd760A8ad8f2886F489574B4",
+      "tx": "0xfe2362bae0bf6cb7b2e8affcd96b8de1bde9dfb5d73d32a7dad8a3ad2b8d192f",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] only the translator who claimed this job may deliver"
+    },
+    {
+      "step": "delivered and ruled: both orders (expected faithful)",
+      "method": "deliver",
+      "from": "0xDB29B2b2a905D0Ac379A5d27abFf12dEdFE675C5",
+      "tx": "0xc697e2aa52ed4c1619648484d345a3347e8a4bf02a84687e0da100c03eab2631",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "jobs": {
+    "3": {
+      "attempts": 1,
+      "claimed_at": "2026-10-12T03:08:12Z",
+      "client": "0x6c9CEbd6eC252eFdcd760A8ad8f2886F489574B4",
+      "deadline": "2026-10-12T03:27:49Z",
+      "draft_1": "A partir del lunes, el tren de las 7:15 a York sale del andén 4, no del andén 2. Los billetes comprados antes del lunes siguen siendo válidos.",
+      "draft_2": "",
+      "fee": "50000000000000000",
+      "id": 3,
+      "paid_to": "translator",
+      "posted_at": "2026-10-12T03:07:49Z",
+      "reason_is_leader_supplied": true,
+      "ruling_1": "faithful",
+      "ruling_2": "",
+      "settled_at": "2026-10-12T03:08:34Z",
+      "source": "From Monday the 7:15 train to York leaves from platform 4, not platform 2. Tickets bought before Monday are still valid.",
+      "source_lang": "English",
+      "status": "paid",
+      "target_lang": "Spanish",
+      "title": "Train station notice: platform change",
+      "translator": "0xDB29B2b2a905D0Ac379A5d27abFf12dEdFE675C5",
+      "why": "All facts, times, dates, platforms, and conditions are correctly translated."
+    }
+  },
+  "balances": {
+    "translator_before": "0",
+    "translator_after": "50000000000000000"
+  }
+}

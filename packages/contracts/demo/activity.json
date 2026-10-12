@@ -1,0 +1,12 @@
+{
+  "job": {
+    "title": "Train station notice: platform change",
+    "source": "From Monday the 7:15 train to York leaves from platform 4, not platform 2. Tickets bought before Monday are still valid.",
+    "source_lang": "English",
+    "target_lang": "Spanish",
+    "fee": "50000000000000000",
+    "window": 1200
+  },
+  "translation": "A partir del lunes, el tren de las 7:15 a York sale del andén 4, no del andén 2. Los billetes comprados antes del lunes siguen siendo válidos.",
+  "expected_ruling": "faithful"
+}

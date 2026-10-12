@@ -1,0 +1,258 @@
+{
+  "clean_text": [
+    {
+      "raw": "  the battery\tis \n missing ",
+      "clean": "the battery is missing"
+    },
+    {
+      "raw": "bell\u0007x",
+      "clean": "bell x"
+    },
+    {
+      "raw": "café   ok",
+      "clean": "café ok"
+    },
+    {
+      "raw": "ab",
+      "clean": "a b"
+    },
+    {
+      "raw": "",
+      "clean": ""
+    },
+    {
+      "raw": "\u0001\u0002",
+      "clean": ""
+    },
+    {
+      "raw": "  Tome un comprimido\tdos veces al día ",
+      "clean": "Tome un comprimido dos veces al día"
+    }
+  ],
+  "normalise_choice": [
+    {
+      "raw": "0",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "1",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": " [1] ",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": "#0",
+      "n": 2,
+      "choice": "0"
+    },
+    {
+      "raw": "(1)",
+      "n": 2,
+      "choice": "1"
+    },
+    {
+      "raw": "2",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "-1",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "as_described",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "0 or 1",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "007",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "1.0",
+      "n": 2,
+      "choice": ""
+    },
+    {
+      "raw": "<0 or 1>",
+      "n": 2,
+      "choice": ""
+    }
+  ],
+  "option_of": [
+    {
+      "choice": "",
+      "order": [
+        "faithful",
+        "unfaithful"
+      ],
+      "option": ""
+    },
+    {
+      "choice": "0",
+      "order": [
+        "faithful",
+        "unfaithful"
+      ],
+      "option": "faithful"
+    },
+    {
+      "choice": "1",
+      "order": [
+        "faithful",
+        "unfaithful"
+      ],
+      "option": "unfaithful"
+    },
+    {
+      "choice": "",
+      "order": [
+        "unfaithful",
+        "faithful"
+      ],
+      "option": ""
+    },
+    {
+      "choice": "0",
+      "order": [
+        "unfaithful",
+        "faithful"
+      ],
+      "option": "unfaithful"
+    },
+    {
+      "choice": "1",
+      "order": [
+        "unfaithful",
+        "faithful"
+      ],
+      "option": "faithful"
+    }
+  ],
+  "fold": [
+    {
+      "forward": "",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "faithful",
+      "folded": ""
+    },
+    {
+      "forward": "",
+      "reverse": "unfaithful",
+      "folded": ""
+    },
+    {
+      "forward": "faithful",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "faithful",
+      "reverse": "faithful",
+      "folded": "faithful"
+    },
+    {
+      "forward": "faithful",
+      "reverse": "unfaithful",
+      "folded": "unfaithful"
+    },
+    {
+      "forward": "unfaithful",
+      "reverse": "",
+      "folded": ""
+    },
+    {
+      "forward": "unfaithful",
+      "reverse": "faithful",
+      "folded": "unfaithful"
+    },
+    {
+      "forward": "unfaithful",
+      "reverse": "unfaithful",
+      "folded": "unfaithful"
+    }
+  ],
+  "ruling_sound": [
+    {
+      "ruling": "faithful",
+      "sound": true
+    },
+    {
+      "ruling": "unfaithful",
+      "sound": true
+    },
+    {
+      "ruling": "",
+      "sound": false
+    },
+    {
+      "ruling": "Faithful",
+      "sound": false
+    },
+    {
+      "ruling": "0",
+      "sound": false
+    },
+    {
+      "ruling": "paid",
+      "sound": false
+    },
+    {
+      "ruling": "faithful ",
+      "sound": false
+    }
+  ],
+  "outcome": [
+    {
+      "ruling": "faithful",
+      "attempt": 1,
+      "outcome": "translator"
+    },
+    {
+      "ruling": "faithful",
+      "attempt": 2,
+      "outcome": "translator"
+    },
+    {
+      "ruling": "faithful",
+      "attempt": 3,
+      "outcome": "translator"
+    },
+    {
+      "ruling": "unfaithful",
+      "attempt": 1,
+      "outcome": ""
+    },
+    {
+      "ruling": "unfaithful",
+      "attempt": 2,
+      "outcome": "client"
+    },
+    {
+      "ruling": "unfaithful",
+      "attempt": 3,
+      "outcome": "client"
+    }
+  ]
+}

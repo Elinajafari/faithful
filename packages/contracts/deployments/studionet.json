@@ -1,0 +1,262 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0xd91BB7Da22D3d4f672Eb346CeE6941c3557A98F1",
+  "explorer": "https://explorer-studio.genlayer.com/address/0xd91BB7Da22D3d4f672Eb346CeE6941c3557A98F1",
+  "source_sha256": "a4766a3374fa4275fa38094fb104b14c24d10299f3665f3b539e5af15db714e3",
+  "constructor": {},
+  "deployer": "0xF03D2ac2f84a4602Ba850F6943C4CFEC3A7AFc65",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0xF03D2ac2f84a4602Ba850F6943C4CFEC3A7AFc65",
+      "tx": "0x9bf92639c23e6b531e9149da90b56a2f81c8bcb031dc3ccfa20d38796065cb84",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": "",
+      "address": "0xd91BB7Da22D3d4f672Eb346CeE6941c3557A98F1"
+    },
+    {
+      "step": "job 0: a pharmacy leaflet, 0.3 GEN",
+      "method": "commission",
+      "from": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "tx": "0x9054507ca0fa6c1ed7a144c782f1c251dcd91ff26073fa9ca934e0c72b60da0b",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "job 1: a tenancy notice, 0.2 GEN",
+      "method": "commission",
+      "from": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "tx": "0xbf835d0c17cb5745db3d0d1293a556ec7a8535e9bf5bee6b050b3c1a6f0d21be",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "job 2: a shop sign, 0.1 GEN",
+      "method": "commission",
+      "from": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "tx": "0x2e7768363e6b7970284bbd65ee0640986ab2420a58e6fe5987a83f6c37ee63bf",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a release before the sign's deadline",
+      "method": "release",
+      "from": "0xd513FB0fA80805F24b700fe90E97EF23572271C1",
+      "tx": "0x0e9c6d052e3a32bde70efa10e39aa18753e09f178a1aab98cc649f1606ff2660",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the job is open until 2026-10-12T03:06:05Z"
+    },
+    {
+      "step": "the client claims its own job",
+      "method": "claim",
+      "from": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "tx": "0x6072a2aa4f7839501c79574954e87443d3377001652b6bc8e179a010bf112016",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the client cannot claim its own job"
+    },
+    {
+      "step": "Ann claims the leaflet",
+      "method": "claim",
+      "from": "0x23DFC34685aCE7087fDb6C36EC2C3Ce480651E3a",
+      "tx": "0x3cd48e14c5d1cc3b38b0db2bf6565f82319106766a40f0245e83eb5d9d1ec055",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "Ben claims the leaflet too",
+      "method": "claim",
+      "from": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "tx": "0x64d28fd5040d99a58d4605fd11901d54356246cf3ba6ba9e0f78293bc45599b2",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this job is claimed; only an open job is claimed"
+    },
+    {
+      "step": "Ben claims the tenancy notice",
+      "method": "claim",
+      "from": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "tx": "0x6a18f6a498ee68aac7a42de6b98a92aba92fc89ea8b7aa87cc88abc693c5b9c4",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "Cal claims the shop sign",
+      "method": "claim",
+      "from": "0x2df08c8795d905B7aF4852F31D1ac8b2Bb0a4dF7",
+      "tx": "0x3c53c431e378d86dd776f227d928fd797dfd368e57125b54528b24741c538981",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a stranger delivers the leaflet",
+      "method": "deliver",
+      "from": "0xd513FB0fA80805F24b700fe90E97EF23572271C1",
+      "tx": "0x07acae7887b1f4858adb05efddc6da5dcdea7350ff524318faa212e32cb51acd",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] only the translator who claimed this job may deliver"
+    },
+    {
+      "step": "the leaflet, 1st try: once a day, no alcohol line",
+      "method": "deliver",
+      "from": "0x23DFC34685aCE7087fDb6C36EC2C3Ce480651E3a",
+      "tx": "0x6512065a3c9c9bcf1c640ba3eb4ed864c80ba9d46826627ae0d1ef55a42014f1",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the leaflet, 2nd try",
+      "method": "deliver",
+      "from": "0x23DFC34685aCE7087fDb6C36EC2C3Ce480651E3a",
+      "tx": "0x37a63d81be9e781e6182f0017badce751e285d906b57af2456267c3103ebb380",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the tenancy, 1st try: 570 pounds, thirty days",
+      "method": "deliver",
+      "from": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "tx": "0xbd8613e3d34e9b84058a1793e128bb4b36c055f27bda69722df3fc64afc8d883",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the tenancy, 2nd try: in French",
+      "method": "deliver",
+      "from": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "tx": "0x7396e707868988b2c49563431c50925500e4db32bdbd052d8d1e5758e9d8b9ab",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "the tenancy, a third try",
+      "method": "deliver",
+      "from": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "tx": "0xc5f1dfe21ced90e05146f2b7a41f76d5029772909549b1a98e0ba5a609af1e5d",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this job is refunded; only a claimed job takes a delivery"
+    },
+    {
+      "step": "the sign delivered after its deadline",
+      "method": "deliver",
+      "from": "0x2df08c8795d905B7aF4852F31D1ac8b2Bb0a4dF7",
+      "tx": "0x29547351c7029bfcbfc553fc4ff279ff7b4f9fcd27b79048b94685265c6e9529",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] delivery closed at 2026-10-12T03:06:05Z; a late translation is never ruled, and release() refunds the client"
+    },
+    {
+      "step": "the sign released: the client refunded",
+      "method": "release",
+      "from": "0xd513FB0fA80805F24b700fe90E97EF23572271C1",
+      "tx": "0xcef8137cfd5337bb48fb30a80f6ffc0273b133106abbc28c3d667af56cc75187",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    }
+  ],
+  "accounts": {
+    "deployer": "0xF03D2ac2f84a4602Ba850F6943C4CFEC3A7AFc65",
+    "client": "0x58a058D32C018937f28baA28d665090516de67b8",
+    "ann": "0x23DFC34685aCE7087fDb6C36EC2C3Ce480651E3a",
+    "ben": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+    "cal": "0x2df08c8795d905B7aF4852F31D1ac8b2Bb0a4dF7",
+    "stranger": "0xd513FB0fA80805F24b700fe90E97EF23572271C1"
+  },
+  "jobs": [
+    {
+      "attempts": 2,
+      "claimed_at": "2026-10-12T02:56:39Z",
+      "client": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "deadline": "2026-10-12T03:20:42Z",
+      "draft_1": "Tome un comprimido una vez al día, con comida, durante siete días, aunque se sienta mejor antes. Si le aparece una erupción o le cuesta respirar, deje de tomar los comprimidos y llame a su médico de inmediato.",
+      "draft_2": "Tome un comprimido dos veces al día, con comida, durante siete días, aunque se sienta mejor antes. No beba alcohol mientras esté tomando este medicamento. Si le aparece una erupción o le cuesta respirar, deje de tomar los comprimidos y llame a su médico de inmediato.",
+      "fee": "300000000000000000",
+      "id": 0,
+      "paid_to": "translator",
+      "posted_at": "2026-10-12T02:55:42Z",
+      "reason_is_leader_supplied": true,
+      "ruling_1": "unfaithful",
+      "ruling_2": "faithful",
+      "settled_at": "2026-10-12T02:57:59Z",
+      "source": "Take one tablet twice a day, with food, for seven days, even if you feel better sooner. Do not drink alcohol while you are taking this medicine. If you get a rash or find it hard to breathe, stop taking the tablets and call your doctor straight away.",
+      "source_lang": "English",
+      "status": "paid",
+      "target_lang": "Spanish",
+      "title": "Pharmacy leaflet: how to take the antibiotic",
+      "translator": "0x23DFC34685aCE7087fDb6C36EC2C3Ce480651E3a",
+      "why": "The translation accurately conveys all instructions, conditions, and warnings from the source text without any omissions or changes in meani"
+    },
+    {
+      "attempts": 2,
+      "claimed_at": "2026-10-12T02:57:02Z",
+      "client": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "deadline": "2026-10-12T03:20:53Z",
+      "draft_1": "El alquiler es de 570 libras al mes, pagado el primer día de cada mes. El depósito de 1.500 libras se devuelve dentro de los treinta días siguientes al final del alquiler.",
+      "draft_2": "Le loyer est de 750 livres par mois, payé le premier jour de chaque mois. Le dépôt de 1 500 livres est rendu dans les dix jours suivant la fin de la location, moins le coût des dégâts éventuels.",
+      "fee": "200000000000000000",
+      "id": 1,
+      "paid_to": "client",
+      "posted_at": "2026-10-12T02:55:53Z",
+      "reason_is_leader_supplied": true,
+      "ruling_1": "unfaithful",
+      "ruling_2": "unfaithful",
+      "settled_at": "2026-10-12T02:58:52Z",
+      "source": "The rent is 750 pounds a month, paid on the first day of each month. The deposit of 1,500 pounds is returned within ten days of the end of the tenancy, minus the cost of any damage.",
+      "source_lang": "English",
+      "status": "refunded",
+      "target_lang": "Spanish",
+      "title": "Tenancy notice: rent and deposit",
+      "translator": "0xCa23813aBCc248d2E34B096A179326BD5FE42310",
+      "why": "The translation is written in French instead of the specified target language, Spanish."
+    },
+    {
+      "attempts": 0,
+      "claimed_at": "2026-10-12T02:57:13Z",
+      "client": "0x58a058D32C018937f28baA28d665090516de67b8",
+      "deadline": "2026-10-12T03:06:05Z",
+      "draft_1": "",
+      "draft_2": "",
+      "fee": "100000000000000000",
+      "id": 2,
+      "paid_to": "client",
+      "posted_at": "2026-10-12T02:56:05Z",
+      "reason_is_leader_supplied": true,
+      "ruling_1": "",
+      "ruling_2": "",
+      "settled_at": "2026-10-12T03:06:39Z",
+      "source": "Open Monday to Saturday from 9 am to 6 pm. Closed on Sundays and public holidays.",
+      "source_lang": "English",
+      "status": "refunded",
+      "target_lang": "Spanish",
+      "title": "Shop sign: opening hours",
+      "translator": "0x2df08c8795d905B7aF4852F31D1ac8b2Bb0a4dF7",
+      "why": ""
+    }
+  ],
+  "balances": {
+    "client_before": "1400000000000000000",
+    "client_after": "1700000000000000000",
+    "ann_before": "0",
+    "ann_after": "300000000000000000",
+    "ben_before": "0",
+    "ben_after": "0"
+  },
+  "held_after": "0"
+}

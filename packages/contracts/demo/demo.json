@@ -1,0 +1,61 @@
+{
+  "jobs": {
+    "leaflet": {
+      "title": "Pharmacy leaflet: how to take the antibiotic",
+      "source": "Take one tablet twice a day, with food, for seven days, even if you feel better sooner. Do not drink alcohol while you are taking this medicine. If you get a rash or find it hard to breathe, stop taking the tablets and call your doctor straight away.",
+      "source_lang": "English",
+      "target_lang": "Spanish",
+      "fee": "300000000000000000",
+      "window": 1500
+    },
+    "tenancy": {
+      "title": "Tenancy notice: rent and deposit",
+      "source": "The rent is 750 pounds a month, paid on the first day of each month. The deposit of 1,500 pounds is returned within ten days of the end of the tenancy, minus the cost of any damage.",
+      "source_lang": "English",
+      "target_lang": "Spanish",
+      "fee": "200000000000000000",
+      "window": 1500
+    },
+    "sign": {
+      "title": "Shop sign: opening hours",
+      "source": "Open Monday to Saturday from 9 am to 6 pm. Closed on Sundays and public holidays.",
+      "source_lang": "English",
+      "target_lang": "Spanish",
+      "fee": "100000000000000000",
+      "window": 600
+    }
+  },
+  "drafts": {
+    "leaflet_first": "Tome un comprimido una vez al día, con comida, durante siete días, aunque se sienta mejor antes. Si le aparece una erupción o le cuesta respirar, deje de tomar los comprimidos y llame a su médico de inmediato.",
+    "leaflet_second": "Tome un comprimido dos veces al día, con comida, durante siete días, aunque se sienta mejor antes. No beba alcohol mientras esté tomando este medicamento. Si le aparece una erupción o le cuesta respirar, deje de tomar los comprimidos y llame a su médico de inmediato.",
+    "tenancy_first": "El alquiler es de 570 libras al mes, pagado el primer día de cada mes. El depósito de 1.500 libras se devuelve dentro de los treinta días siguientes al final del alquiler.",
+    "tenancy_second": "Le loyer est de 750 livres par mois, payé le premier jour de chaque mois. Le dépôt de 1 500 livres est rendu dans les dix jours suivant la fin de la location, moins le coût des dégâts éventuels.",
+    "tenancy_third": "El alquiler es de 750 libras al mes, pagado el primer día de cada mes. El depósito de 1.500 libras se devuelve dentro de los diez días siguientes al final del alquiler, menos el coste de cualquier daño.",
+    "sign_late": "Abierto de lunes a sábado de 9 a 18 h. Cerrado los domingos y los días festivos."
+  },
+  "steps": [
+    {"who": "client", "method": "commission", "job": "leaflet", "expect": "ok", "step": "job 0: a pharmacy leaflet, 0.3 GEN"},
+    {"who": "client", "method": "commission", "job": "tenancy", "expect": "ok", "step": "job 1: a tenancy notice, 0.2 GEN"},
+    {"who": "client", "method": "commission", "job": "sign", "expect": "ok", "step": "job 2: a shop sign, 0.1 GEN"},
+    {"who": "stranger", "method": "release", "id": 2, "expect": "refused", "step": "a release before the sign's deadline"},
+    {"who": "client", "method": "claim", "id": 0, "expect": "refused", "step": "the client claims its own job"},
+    {"who": "ann", "method": "claim", "id": 0, "expect": "ok", "step": "Ann claims the leaflet"},
+    {"who": "ben", "method": "claim", "id": 0, "expect": "refused", "step": "Ben claims the leaflet too"},
+    {"who": "ben", "method": "claim", "id": 1, "expect": "ok", "step": "Ben claims the tenancy notice"},
+    {"who": "cal", "method": "claim", "id": 2, "expect": "ok", "step": "Cal claims the shop sign"},
+    {"who": "stranger", "method": "deliver", "id": 0, "draft": "leaflet_second", "expect": "refused", "step": "a stranger delivers the leaflet"},
+    {"who": "ann", "method": "deliver", "id": 0, "draft": "leaflet_first", "expect": "ok", "step": "the leaflet, 1st try: once a day, no alcohol line"},
+    {"who": "ann", "method": "deliver", "id": 0, "draft": "leaflet_second", "expect": "ok", "step": "the leaflet, 2nd try"},
+    {"who": "ben", "method": "deliver", "id": 1, "draft": "tenancy_first", "expect": "ok", "step": "the tenancy, 1st try: 570 pounds, thirty days"},
+    {"who": "ben", "method": "deliver", "id": 1, "draft": "tenancy_second", "expect": "ok", "step": "the tenancy, 2nd try: in French"},
+    {"who": "ben", "method": "deliver", "id": 1, "draft": "tenancy_third", "expect": "refused", "step": "the tenancy, a third try"},
+    {"who": "cal", "method": "deliver", "id": 2, "draft": "sign_late", "expect": "refused", "step": "the sign delivered after its deadline", "after_deadline_of": 2},
+    {"who": "stranger", "method": "release", "id": 2, "expect": "ok", "step": "the sign released: the client refunded", "after_deadline_of": 2}
+  ],
+  "expected_rulings": [
+    "unfaithful",
+    "faithful",
+    "unfaithful",
+    "unfaithful"
+  ]
+}
